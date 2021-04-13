@@ -1,0 +1,14 @@
+/* General style */
+@import "./general.css";
+
+/* Login */
+@import "./login/login.css";
+
+/* Components */
+@import "./components/components.css";
+
+/* Home */
+@import "./home/home.css";
+
+/* Admin */
+@import "./admin/admin.css";

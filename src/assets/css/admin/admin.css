@@ -1,0 +1,9 @@
+.admin {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #0c365a;
+  color: #fff;
+}

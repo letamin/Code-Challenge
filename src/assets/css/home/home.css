@@ -1,0 +1,54 @@
+.home {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #0c365a;
+  color: #fff;
+}
+
+.loan-form {
+  margin: 0 auto;
+  max-width: 500px;
+  padding: 3rem;
+  box-shadow: 3px 3px 16px rgba(0, 0, 0, 0.08);
+  background-color: #01d167;
+  border-radius: 14px;
+}
+
+.loan-form h3 {
+  font-size: 2.4rem;
+  margin-bottom: 2rem;
+}
+
+.loan-form .form-control {
+  flex-direction: column;
+  margin-bottom: 2rem;
+}
+
+.loan-form label {
+  color: #222222;
+  align-self: flex-start;
+  font-size: 1.2rem;
+  margin-bottom: 0.8rem;
+  font-weight: bold;
+  letter-spacing: 0.6px;
+}
+
+.repay-container {
+  border-radius: 15px;
+  padding: 30px 30px 15px 30px;
+  background: rgba(0, 0, 0, 0.4);
+  font-size: 1.5rem;
+  width: 300px;
+}
+
+.repay-container h3 {
+  margin-bottom: 2rem;
+}
+
+.repay-container div {
+  margin-bottom: 1.5rem;
+  text-align: left;
+}

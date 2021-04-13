@@ -1,6 +1,6 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import Home from "../views/Home.vue";
+import jwtDecode from "jwt-decode";
 
 Vue.use(VueRouter);
 
@@ -8,16 +8,46 @@ const routes = [
   {
     path: "/",
     name: "Home",
-    component: Home,
+    component: () => import("../views/Home/Home.vue"),
   },
   {
-    path: "/about",
-    name: "About",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/About.vue"),
+    path: "/done",
+    name: "LoanDone",
+    component: () => import("../views/Home/Done.vue"),
+  },
+  {
+    path: "/repay",
+    name: "LoanRepay",
+    component: () => import("../views/Home/Repay.vue"),
+  },
+  {
+    path: "/login",
+    name: "Login",
+    component: () => import("../views/Login/Login.vue"),
+    beforeEnter(to, from, next) {
+      if (to.name == "Login") {
+        if (localStorage.getItem("token")) {
+          try {
+            const decode = jwtDecode(localStorage.getItem("token"));
+            if (decode.userType === "admin") {
+              next("/admin");
+            } else if (decode.userType === "client") {
+              next("/");
+            }
+          } catch {
+            localStorage.removeItem("token");
+            next("/login");
+          }
+        } else {
+          next();
+        }
+      }
+    },
+  },
+  {
+    path: "/admin",
+    name: "Admin",
+    component: () => import("../views/Admin/Admin.vue"),
   },
 ];
 
